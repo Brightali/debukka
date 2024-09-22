@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navtiming: 0.2s;
+  --bggradient: linear-gradient(
+    313deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(50, 50, 50, 1) 100%
+  );
+
+  .lightscheme {
+    --main-red: rgba(246, 20, 23);
+    --text-color-dark: rgb(30, 27, 27);
+    --text-color-light: rgb(255, 250, 250);
+    --bg-color: rgb(255, 250, 250);
+    --reverse-red: rgba(246, 20, 23);
+    --border-color: rgb(221, 218, 218);
+  }
+  .darkscheme {
+    --main-red: rgba(246, 20, 23);
+    --text-color-dark: rgb(30, 27, 27);
+    --text-color-light: rgb(231, 231, 231);
+    --bg-color: rgb(30, 27, 27);
+    --border-color: rgb(50, 47, 47);
+    --reverse-red: rgb(30, 27, 27);
+  }
+}
+
+body {
+  font-family: "poppins";
+}
+* {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .frame {
+    @apply xs:px-4 w-full;
+  }
+  .inner-frame {
+    @apply mx-auto  w-[93%] max-w-[800px];
+  }
+  .footer-text-small {
+    @apply text-sm leading-6 tracking-wide mt-3 mb-5;
+  }
+  .footer-text-big {
+    @apply text-lg font-bold  tracking-wide;
+  }
+  .menu-button {
+    @apply block absolute h-[3px] w-6 bg-red-600 transform transition duration-200 ease-in-out;
+  }
+}
+
+.noScrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.visual {
+  border: 2px solid red;
+}
+.visual2 {
+  border: 2px solid yellowgreen;
+}
+
+.slide-in {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform var(--navtiming) ease-out,
+    opacity var(--navtiming) ease-out;
+}
+
+.slide-out {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform var(--navtiming) ease-in,
+    opacity var(--navtiming) ease-in;
+  pointer-events: none;
+}
+
+.bg {
+  background: var(--bggradient);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.fade-in {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform var(--navtiming) ease-out,
+    opacity var(--navtiming) ease-out;
+}
+
+.fade-out {
+  transform: scale(0.9);
+  opacity: 0;
+  /* transition: transform var(--navtiming) ease-in, opacity var(--navtiming) ease-in; */
+  pointer-events: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.custom-input input {
+  @apply border rounded-lg px-3 py-2 text-sm w-full outline-none border-gray-500 focus:border-gray-400;
+}
+
+.input-wrapper {
+  @apply w-full flex flex-col gap-2 mb-4;
+}
